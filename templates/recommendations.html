@@ -10,7 +10,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Get Recommended!!!</title>
+    <title>Predictions</title>
     <!-- Icons font CSS-->
     <link href="static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -27,37 +27,26 @@
 </head>
 
 <body>
-    <div class="page-wrapper bg-gra-01 p-t-100 p-b-100 font-poppins">
+    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-poppins">
         <div class="wrapper wrapper--w780">
-            <div class="card card-3">
+           
                 <div class="card-heading"></div>
                 <div class="card-body">
-                    <h2 class="title">Registration Info</h2>
-                    <form action="{{ url_for('reclist') }}" method="POST">
+                    <h2 class="title">Predictions</h2>
+                    <form >
                         <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Name" name="name">
+                            <input class="input--style-3" type="number" placeholder="Movie Id">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-3 js-datepicker" type="text" placeholder="Birthdate" name="birthday">
-                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                            <input class="input--style-3" type="number" placeholder="User Id">
                         </div>
-                        <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="gender">
-                                    <option disabled="disabled" selected="selected">Genre List</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                        </div>
+                    
                         <div class="p-t-10">
-                            <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                            <button class="btn btn--pill btn--green" type="submit">Predict</button>
                         </div>
                     </form>
                 </div>
-            </div>
+        
         </div>
     </div>
 
