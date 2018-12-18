@@ -14,18 +14,53 @@ def home():
 def registration():
     return render_template("index.html")
 
+@app.route("/index")
+def index():
+    return render_template("index.html")
+
 @app.route("/reclist", methods=['POST'])
 def reclist():
-	name = request.form['name']
-	return name
+	userId = request.form['userId']
+	genre = request.form['genre']
+	print (type(genre))
+	if genre == "Genre List":
+		print ("in if")
+		url = "http://35.170.52.162/recommendations/"+userId
+		res = requests.get(url)
+		data = res.json()
+		l=[]
+		for x in data:
+			l.append(x["movie_name"])
+		return render_template("reclist.html", movies=l)
+	else:
+		print ("in else")
+		ext = userId+'-'+genre
+		url = "http://35.170.52.162/genrerecommendations/"+ext
+		res = requests.get(url)
+		data = res.json()
+		l=[]
+		for x in data:
+			l.append(x["movie_name"])
+		return render_template("reclist.html", movies=l)
 
-@app.route("/predict")
-def get():
-	ext = 500
-	url = 'http://35.170.52.162/predict/'+repr(ext)
+@app.route("/predict", methods=['POST'])
+def predict():
+	movieId = request.form['movieId']
+	userId = request.form['userId']
+	ext = userId+'-'+movieId
+	url = "http://35.170.52.162/predict/1-500"
 	res = requests.get(url)
 	data = res.json()
-	return "The rating of the movie "+repr(data['product'])+" is "+repr(data['rating'])
+	return render_template("test.html", y=data["product"], z=data["rating"])
+
+@app.route("/test")
+def test():
+	x = 25
+	return render_template("index.html", y=x)
+
+@app.route("/prediction")
+def prediction():
+    return render_template("prediction.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

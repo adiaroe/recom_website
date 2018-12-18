@@ -10,7 +10,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Get Recommended!!!</title>
+    <title>Recommdations</title>
     <!-- Icons font CSS-->
     <link href="static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -24,8 +24,8 @@
     <!-- Main CSS-->
     <!-- <link href="css/main.css" rel="stylesheet" media="all"> -->
     <link rel="stylesheet" href="static/css/main.css">
-    <script type="text/javascript">
-        var y = {{y}}
+    <script>
+      movies={{movies}}
     </script>
 </head>
 
@@ -35,27 +35,14 @@
             <div class="card card-3">
                 <div class="card-heading"></div>
                 <div class="card-body">
-                    <h2 class="title">Get Recommendations</h2>
-                    <h2 class="title">{{y}}</h2>
-                    <form action="{{ url_for('reclist') }}" method="POST">
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="User ID" name="userId">
-                        </div>
-                        <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="genre">
-                                    <option>Genre List</option>
-                                    <option>Action</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                        </div>
-                        <div class="p-t-10">
-                            <button class="btn btn--pill btn--green" type="GET!!!">Submit</button>
-                        </div>
-                    </form>
+                    <h2 class="title">We Recommend:</h2>
+    <div>
+      <ul style="color: white">
+    {% for movie in movies %}
+    <li>{{ movie }}</li>
+    {% endfor %}
+</ul>
+</div>
                 </div>
             </div>
         </div>
