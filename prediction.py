@@ -8,7 +8,7 @@ def index():
  
 @app.route("/recommendation")
 def recommendation():
-    return render_template('recommendations.html')
+    return render_template('test.html')
  
 if __name__ == "__main__":
     
